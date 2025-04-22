@@ -15,7 +15,7 @@ typedef struct {
     SDL_Rect positionminijoueur;
 } Minimap;
 
-//ytfytfkfuyyugggggyguyggygyyyyyyyyyyggygyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
+
 void afficherMinimap(Minimap m, SDL_Surface *screen) {
     SDL_BlitSurface(m.map, NULL, screen, &m.positionmap);
     SDL_BlitSurface(m.minijoueur, NULL, screen, &m.positionminijoueur);
