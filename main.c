@@ -46,10 +46,10 @@ int main(int argc, char** argv) {
         return 1;
     }
 
-    map = IMG_Load("map.png");
-    m.map = IMG_Load("minimap.png");
-    map2 = IMG_Load("map2.jpg");
-    minimap2 = IMG_Load("minimap2.jpg");
+    map = IMG_Load("outils/map.png");
+    m.map = IMG_Load("outils/minimap.png");
+    map2 = IMG_Load("outils/map2.jpg");
+    minimap2 = IMG_Load("outils/minimap2.jpg");
     hero = IMG_Load("outils/hero.png");
     m.minijoueur = IMG_Load("outils/joueurmini.png");
 
@@ -58,7 +58,7 @@ int main(int argc, char** argv) {
         return 1;
     }
 
-    musique = Mix_LoadMUS("musique.mp3");
+    musique = Mix_LoadMUS("outils/musique.mp3");
     if (!musique) {
         fprintf(stderr, "Erreur chargement musique: %s\n", Mix_GetError());
         return 1;
@@ -106,13 +106,13 @@ int main(int argc, char** argv) {
             }
         }
 
-        // Check for transition to level 2
+        // yetfa9ed est ce t3ada lel level li ba3dou
         if (currentLevel == 1 && posHero.x > map->w - 50) {
             currentLevel = 2;
             posHero.x = 0;
             posHero.y = 530;
 
-            // Switch to level 2 assets
+            // yet3ada l next level
             map = map2;
             m.map = minimap2;
 
@@ -120,8 +120,8 @@ int main(int argc, char** argv) {
             m.positionmap.h = m.map->h;
         }
 
-        // Scroll camera
-        camera.x = posHero.x - WINDOW_WIDTH / 2;
+        //  camera tescroli
+         camera.x = posHero.x - WINDOW_WIDTH / 2;
         camera.y = posHero.y - WINDOW_HEIGHT / 2;
 
         if (camera.x < 0) camera.x = 0;
@@ -129,11 +129,11 @@ int main(int argc, char** argv) {
         if (camera.x > map->w - camera.w) camera.x = map->w - camera.w;
         if (camera.y > map->h - camera.h) camera.y = map->h - camera.h;
 
-        // Update mini joueur position on minimap
+        // mise a jouer lel position ta3 minijoueur fel mini map
         m.positionminijoueur.x = m.positionmap.x + (posHero.x * m.map->w / map->w);
         m.positionminijoueur.y = m.positionmap.y + (posHero.y * m.map->h / map->h);
 
-        // Display
+        // display
         SDL_BlitSurface(map, &camera, screen, NULL);
 
         posHeroOnScreen.x = posHero.x - camera.x;
